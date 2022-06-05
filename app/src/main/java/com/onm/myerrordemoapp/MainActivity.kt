@@ -21,5 +21,18 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
 
         }
+
+        val btnThrow : Button = findViewById(R.id.btnThrowException)
+        btnThrow.setOnClickListener{
+            val exception = "There is an error here!!!"
+            Toast.makeText(this, exception, Toast.LENGTH_LONG).show()
+            try {
+                throw Exception(exception)
+            } catch (e : Exception){
+                Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+                println(e.message)
+            }
+
+        }
     }
 }
